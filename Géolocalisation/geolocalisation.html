@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Géolocalisation</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="Images/favicon.ico" />
+    <link rel="stylesheet" href="Dependencies/leaflet.css" />
+    <script src="Dependencies/leaflet.js"></script>
+    <link href="Dependencies/datepicker.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="sitestyle.css" />
+    <link rel="stylesheet" href="Dependencies/bootstrap.css" />
+    <link rel="stylesheet" href="Dependencies/leaflet.pm.css" />
+    <script src='Dependencies/leaflet.snogylop.js'></script>
+    <script id="useCase_tp" type="text/custom-template">
+
+        <div class="row">
+        <div class="col">
+            <h2 class="display-4" id="titre"></h2>
+        </div>
+        <div class="col text-right align-self-center">
+            <button class="btn back">
+                <img src="Images/returnbutton.png" style="width: 25px; height:auto">
+            </button>
+        </div>
+    </div>
+    <div class="row my-2 divide"></div>
+    <div class="row my-4">
+        <div class="offset-1 col align-self-center">
+            <span class="display-3">1- Où?</span>
+        </div>
+        <div class="col text-right" id="shapeBtnSlot">
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row my-2 mx-2 divide"></div>
+    <div class="row my-4" id="qd1date">
+        <div class="offset-1 col align-self-center">
+            <span class="display-3">2- Quand?</span>
+        </div>
+        <div class="col ml-auto align-self-center">
+            <label for="datedebut">Date du passage:</label>
+            <input type="text" class="form-control date" id="date_passage"
+                value="2019-05-07" readonly>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row my-2 mx-2 divide"></div>
+    <div class="row my-4">
+        <div class="offset-1 col align-self-center">
+            <span class="display-3">3- Combien<br> de temps?</span>
+        </div>
+        <div class="col ml-auto align-self-center">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        De
+                    </span>
+                </div>
+                <input type="number" class="form-control" step="15" min="0" max="1440">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">
+                        à
+                    </span>
+                </div>
+                <input type="number" class="form-control" step="15" min="0" max="1440">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        minutes
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="row my-2 mx-2 divide"></div>
+    <div class="row my-4">
+        <div class="col text-center">
+            <button type="button" class="btn btn-lg btn-secondary" id="download_visite">
+                Télécharger la liste d'IMEI anonymisés
+            </button>
+        </div>
+    </div>
+    </script>
+    <script id="polybtn_tp" type="text/custom-template">
+        <button class="btn btn-outline-secondary btn-block" data-toggle="button" id="polygone">
+                <svg width="50" viewBox="0 0 1024 1024" style="transform: scale(-1,-1)">
+                    <path xmlns="http://www.w3.org/2000/svg" fill=""
+                        d="M915.41954 712.88535l0-299.37069c29.34944-9.8616 50.55746-37.61059 50.55746-70.23973 0-40.8555-33.23801-74.09453-74.09351-74.09453-32.62914 0-60.37813 21.20904-70.23973 50.55848l-619.28854-204.8c-9.8616-29.349435-37.6106-50.558475-70.23974-50.558475-40.855501 0-74.09351 33.238-74.09351 74.094525 0 32.62914 21.209044 60.37813 50.55747 70.23973l102.4 606.57069c-29.34842 9.8616-50.55747 37.61162-50.55747 70.23973 0 40.85653 33.23801 74.09451 74.09351 74.09451 32.62812 0 60.37814-21.20902 70.23872-50.55744l516.89058-102.4c9.8616 29.34946 37.61162 50.55747 70.23974 50.55747 40.8555 0 74.09351-33.23801 74.09351-74.09453-0.001-32.62811-21.20905-60.37915-50.55849-70.23974zm-93.77476 46.7037l-516.88956 102.4c-7.37395-21.94889-24.75378-39.32975-46.7037-46.70471l-102.4-606.56967c21.9489-7.37496 39.32873-24.7548 46.7037-46.70369l619.28956 204.8c7.37497 21.94889 24.7548 39.32873 46.7037 46.70369l0 299.37069c-21.94992 7.37497-39.32976 24.7548-46.7037 46.70369z">
+                    </path>
+                </svg>
+                <div class="d-inline">Tracer un polygone</div>
+            </button>
+    </script>
+    <script id="ligne_tp" type="text/custom-template">
+        <button class="btn btn-outline-secondary btn-block" data-toggle="button" id="ligne">
+                <svg width="50" viewBox="0 0 1024 1024">
+                    <path xmlns="http://www.w3.org/2000/svg" fill=""
+                        d="M983.04 0C960.418427 0 942.08 18.338417 942.08 40.96 942.08 47.317817 943.334932 53.510863 945.92 58.88L802.56 266.24C801.293414 266.122015 800.017408 266.24 798.72 266.24 788.403773 266.24 779.04171 270.185411 771.84 276.48L449.92 175.36C445.8735 156.994302 429.181809 143.36 409.6 143.36 386.978427 143.36 368.64 161.698417 368.64 184.32 368.64 203.406952 381.691924 219.454198 399.36 224L503.04 586.24C500.275896 589.130588 497.828372 592.238797 496 595.84L218.24 612.48C210.9218 601.326531 198.656602 593.92 184.32 593.92 161.698417 593.92 143.36 612.258427 143.36 634.88 143.36 644.026143 146.613484 652.383109 151.68 659.2L35.2 942.72C15.316568 945.529528 0 962.381189 0 983.04 0 1005.661573 18.338417 1024 40.96 1024 63.581583 1024 81.92 1005.661573 81.92 983.04 81.92 973.893857 78.666516 965.536891 73.6 958.72L190.08 675.2C203.549549 673.296753 214.870405 665.119068 220.8 653.44L498.56 636.8C505.8782 647.953469 518.143406 655.36 532.48 655.36 555.101573 655.36 573.44 637.021573 573.44 614.4 573.44 595.31305 560.388076 579.265802 542.72 574.72L440.32 215.68 758.4 316.16C762.4465 334.525686 779.138191 348.16 798.72 348.16 821.341573 348.16 839.68 329.821573 839.68 307.2 839.68 300.842189 838.425068 294.649139 835.84 289.28L979.2 81.92C980.466586 82.037991 981.742592 81.92 983.04 81.92 1005.661573 81.92 1024 63.581583 1024 40.96 1024 18.338417 1005.661573 0 983.04 0z">
+                    </path>
+                </svg>
+                <div class="d-inline">Tracer une ligne</div>
+            </button>
+    </script>
+    <script id="realtime_tp" type="text/custom-template">
+        <div class="row">
+            <div class="col">
+                <h2 class="display-4">Visualisation</h2>
+            </div>
+            <div class="col text-right align-self-center">
+                <button class="btn back">
+                    <img src="Images/returnbutton.png" style="width: 25px; height:auto">
+                </button>
+            </div>
+        </div>
+        <div class="row my-2 divide"></div>
+        <div class="row my-4">
+            <div class="offset-1 col align-self-center">
+                <span class="display-3">1- Qui?</span>
+            </div>
+            <div class="col">
+                <label for="imei_realtime">Entrer un numéro:</label>
+                <input id="imei_realtime" type="number" min="1" value="302500400657242"
+                    class="form-control">
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row my-2 mx-2 divide"></div>
+        <div class="row my-4">
+            <div class="offset-1 col align-self-center">
+                <span class="display-3">2- Quand?</span>
+            </div>
+            <div class="col align-self-center">
+                <label for="datedebut">Déplacements le:</label>
+                <input type="text" class="form-control date" id="date_realtime" value="2019-07-25"
+                    readonly>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row my-2 mx-2 divide"></div>
+        <div class="row my-4">
+            <div class="col text-center">
+                <button class="btn btn-secondary btn-lg" id="submit_button">
+                    Obtenir les données de déplacement
+                </button>
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </script>
+    <script id="cellListe_tp" type="text/custom-template">
+
+    </script>
+</head>
+
+<body>
+
+    <main role="main">
+
+        <div class="container-fluid overlay fixed-top">
+            <div class="row bg-white header content">
+                <div class="col-2">
+                </div>
+                <div class="col align-self-center text-right">
+                    <h3 class=""><b>GÉOLOCALISATION</b></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5 mt-4 content">
+                    <div class="jumbotron">
+                        <div id="menu_usecase">
+                            <h2 class="display-4">Bienvenue dans l'outil de Géolocalisation</h2>
+                            <hr>
+                            <p class="lead">Choisir un cas d'utilisation :</p>
+                            <div class="btn-group btn-group-lg" role="group">
+                                <a class="btn btn-outline-secondary text-left usecase" href="#menu_trajet"
+                                    data-toggle="collapse" role="button" id="Trajet">Trajet
+                                    <hr />
+                                    <p>
+                                        Utilisateurs localisés le long d'un déplacement.
+                                    </p>
+                                </a>
+                                <a class="btn btn-outline-secondary text-left usecase" href="#menu_visite" role="button"
+                                    id="Visite">Visite
+                                    <hr>
+                                    <p>
+                                        Utilisateurs localisés à une heure précise, pendant un temps limité.
+                                    </p>
+                                </a>
+                                <a class="btn btn-outline-secondary text-left usecase" href="#menu_habitude"
+                                    role="button" id="Habitude">Habitude
+                                    <hr>
+                                    <p>
+                                        Utilisateurs localisés à intervalles réguliers, au même endroit.
+                                    </p>
+                                </a>
+                                <a class=" ml-2 btn btn-outline-secondary text-left usecase" href="#menu_realtime"
+                                    role="button" id="Visualisation">Visualisation
+                                    <hr>
+                                    <p>
+                                        Visualisation du déplacement d'un IMEI quotidien anonymisé.
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="menu" id="menu">
+                        </div>
+
+
+                        <div class="menu" id="results_realtime">
+                            <div class="row">
+                                <div class="col">
+                                    <h2 class="display-4">Visualisation</h2>
+                                </div>
+                                <div class="col text-right align-self-center">
+                                    <button class="btn" id="back_results">
+                                        <img src="Images/returnbutton.png" style="width: 25px; height:auto">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row my-2 divide"></div>
+                            <div class="row mt-4 align-items-baseline">
+                                <div class="col font-weight-bold">
+                                    <label class="ml-2" id="timelabel" for="timeline_time">06 h:00 m</label>
+                                </div>
+                                <div class="col mb-1 text-right mr-3">
+                                    <button class="btn btn-dark play" id="play_button">
+                                        Play
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="range" min="0" max="86400" value="21600" class="slider"
+                                        id="timeline_time" step="30" />
+                                </div>
+                            </div>
+                            <div class="row my-2 mx-2 divide"></div>
+                            <div class="row my-4">
+                                <div class="col offset-1">
+                                    Nombre d'antennes contactées:<b>
+                                        <div id="timeline_antennes" class="text-center">
+                                        </div>
+                                    </b>
+                                </div>
+                                <div class="col">
+                                    Nombre de contacts uniques: <b>
+                                        <div id="timeline_contacts" class="text-center"></div>
+                                    </b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="shapestorage" class="d-none"></div>
+                <div id="antennesstorage" class="d-none"></div>
+            </div>
+        </div>
+        </div>
+        <div id="mapid" class="fixed-top">
+        </div>
+        <div id="loading" class="h-100 fixed-top">
+            <div class="m-auto font-weight-bold text-center" id="loadingcontent">
+                <div class="spinner-border text-primary" role="status" id="spinnermap">
+                </div>
+                <div id="loadingtext">
+                    Chargement des antennes...
+                </div>
+            </div>
+        </div>
+    </main>
+    <div>
+        <script src="Dependencies/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+            </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+            </script>
+        <script src="Dependencies/leaflet.pm.min.js"></script>
+        <script src="Dependencies/datepicker.min.js"></script>
+        <script src="mymap.js"></script>
+        <script src="animations.js"></script>
+    </div>
+</body>
+
+</html>

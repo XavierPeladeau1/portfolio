@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xavier Péladeau - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="layout">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h1>Xavier Péladeau</h1>
+                <p class="tagline">Data Science | Cloud Engineering | Software Development</p>
+
+                <div class="intro">
+                    <p class="intro-main">Welcome to my portfolio</p>
+                    <p class="intro-text">I am a data practicioner with over four years of experience building end-to-end data solutions that range from predictive modeling and time series forecasting to cloud infrastructure automation and full-stack applications.</p>
+                    <p class="intro-text">I have recently graduated with a Master's degree in Data Science from HEC Montréal.</p>
+                </div>
+
+                <div class="sidebar-footer">
+                    <a href="https://github.com/xavierpeladeau1/portfolio" target="_blank" class="github-link">
+                        <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <main class="main-content">
+            <div class="projects-header">
+                <h2>Projects</h2>
+                <p>Click on any project to view details</p>
+            </div>
+
+            <section class="projects">
+                <div class="category">
+                    <h3 class="category-title">Data Science</h3>
+
+                    <div class="project-panel">
+                        <div class="project-header" onclick="toggleProject(this)">
+                            <div class="project-title-section">
+                                <h4>Forecasting Interest Rate Fluctuations</h4>
+                                <div class="award">🏆 Student Competition - Winner - Défi IA 2025 (CDPQ)</div>
+                            </div>
+                            <div class="expand-icon">▼</div>
+                        </div>
+                        <div class="project-content">
+                            <p>Multi-horizon forecasting of US 10-year Treasury yields using deep learning and statistical models. Initial work done as part of the Défi IA 2025 competition organized by Caisse de Dépôt et Placement du Québec (CDPQ), which my team won in January 2025.</p>
+
+                            <div class="tech-stack">
+                                <span class="tech-tag">PyTorch</span>
+                                <span class="tech-tag">Darts</span>
+                                <span class="tech-tag">TFT</span>
+                                <span class="tech-tag">N-HiTS</span>
+                            </div>
+
+                            <ul class="features">
+                                <li>Multi-step forecasting (1 to 36 months ahead)</li>
+                                <li>Probabilistic outputs with uncertainty intervals</li>
+                                <li>Walk-forward validation with baseline comparisons</li>
+                                <li>Public data via FRED API</li>
+                            </ul>
+
+                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/main/Forecasting%20Interest%20Rate%20Fluctuations" class="btn" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-panel">
+                        <div class="project-header" onclick="toggleProject(this)">
+                            <div class="project-title-section">
+                                <h4>Forecasting Electricity Consumption</h4>
+                                <div class="project-context">Course Term Project - Machine Learning II</div>
+                            </div>
+                            <div class="expand-icon">▼</div>
+                        </div>
+                        <div class="project-content">
+                            <p>Time series forecasting of electricity consumption using classical and deep learning approaches for Hydro-Québec data.</p>
+
+                            <div class="tech-stack">
+                                <span class="tech-tag">SARIMAX</span>
+                                <span class="tech-tag">TCN</span>
+                                <span class="tech-tag">Python</span>
+                            </div>
+
+                            <p class="project-description">Models: ARIMA/SARIMAX for statistical modeling, TCN for neural network-based forecasting</p>
+
+                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/main/Forecasting%20Electricity%20Consumption" class="btn" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <h3 class="category-title">Cloud Engineering</h3>
+
+                    <div class="project-panel">
+                        <div class="project-header" onclick="toggleProject(this)">
+                            <div class="project-title-section">
+                                <h4>Prefect Workflow Orchestration Platform</h4>
+                                <div class="project-context">Professional Project - Québecor</div>
+                            </div>
+                            <div class="expand-icon">▼</div>
+                        </div>
+                        <div class="project-content">
+                            <p>Production-ready, self-hosted Prefect workflow orchestration platform deployed on Google Cloud Platform with Infrastructure-as-Code provisioning and automated CI/CD.</p>
+
+                            <div class="tech-stack">
+                                <span class="tech-tag">GCP</span>
+                                <span class="tech-tag">Terraform</span>
+                                <span class="tech-tag">Docker</span>
+                                <span class="tech-tag">Prefect</span>
+                                <span class="tech-tag">Cloud Run</span>
+                                <span class="tech-tag">Cloud Build</span>
+                            </div>
+
+                            <ul class="features">
+                                <li>Complete infrastructure provisioning with Terraform</li>
+                                <li>VPC networking with private IP addressing and firewall rules</li>
+                                <li>GitOps CI/CD pipeline with automated Docker builds</li>
+                                <li>Multi-service Docker Compose setup (PostgreSQL, Redis, Prefect server/worker)</li>
+                                <li>Serverless workflow execution on Cloud Run</li>
+                            </ul>
+
+                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/main/Prefect" class="btn" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category">
+                    <h3 class="category-title">Web Development</h3>
+
+                    <div class="project-panel">
+                        <div class="project-header" onclick="toggleProject(this)">
+                            <div class="project-title-section">
+                                <h4>Geolocation Visualization App</h4>
+                                <div class="project-context">Internship Project</div>
+                            </div>
+                            <div class="expand-icon">▼</div>
+                        </div>
+                        <div class="project-content">
+                            <p>Vanilla JavaScript application for visualizing mobile device location data with interactive maps and animations.</p>
+
+                            <div class="tech-stack">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Leaflet</span>
+                            </div>
+
+                            <ul class="features">
+                                <li>Interactive map visualization</li>
+                                <li>Geolocation data parsing</li>
+                                <li>Custom animations and styling</li>
+                            </ul>
+
+                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/main/G%C3%A9olocalisation" class="btn" target="_blank">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function toggleProject(header) {
+            const panel = header.parentElement;
+            const content = panel.querySelector('.project-content');
+            const icon = header.querySelector('.expand-icon');
+
+            // Close other open panels
+            document.querySelectorAll('.project-panel.active').forEach(otherPanel => {
+                if (otherPanel !== panel) {
+                    otherPanel.classList.remove('active');
+                    otherPanel.querySelector('.expand-icon').textContent = '▼';
+                }
+            });
+
+            // Toggle current panel
+            panel.classList.toggle('active');
+            icon.textContent = panel.classList.contains('active') ? '▲' : '▼';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# GCP Project Configuration
+project_id = "subtle-presence-295420"
+region     = "northamerica-northeast1"
+zone       = "northamerica-northeast1-a"
+
+# IP Address Configuration
+prefect_server_internal_ip = "10.162.0.37"
+subnet_range               = "10.162.0.0/20"
+vpc_connector_ip_range     = "10.8.0.0/28"
+
+# VM Configuration
+prefect_vm_machine_type   = "e2-medium"
+prefect_vm_boot_disk_size = 50
+prefect_vm_boot_disk_type = "pd-standard"
+
+# Docker Image Configuration
+prefect_image = "northamerica-northeast1-docker.pkg.dev/subtle-presence-295420/prefect-project/prefect-project:latest"
+
+# Database Configuration
+postgres_password = "CHANGE_ME_SECURE_PASSWORD"  # IMPORTANT: Change this!
+
+# Security Configuration
+# IMPORTANT: Restrict SSH access to specific IPs in production
+ssh_allowed_cidrs = ["0.0.0.0/0"]
+
+# GitHub Configuration
+github_owner  = "your-github-username"
+github_repo   = "your-repo-name"
+github_branch = "master"
+
+# Resource Labels
+labels = {
+  environment = "production"
+  managed_by  = "terraform"
+  application = "prefect"
+  team        = "data-engineering"
+}

@@ -1,0 +1,95 @@
+html,body, main, .container-fluid, #mapid{
+    height: 100%;
+}
+
+html{
+    font-size: 15px;
+}
+
+.slidecontainer {
+    width: 100%;
+}
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 17px;
+    background: #ffd300;
+    border-radius: .5rem;
+    outline: none;
+}
+.slider:hover {
+    background: #e0bb00;
+}
+
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 27px;
+    height: 27px;
+    border: 1px solid black; 
+    background: url('Images/logo.png');
+    border-radius: 100%;
+    cursor: pointer;
+}
+.header {
+    box-shadow: 0px -5px 20px -3px black;
+}
+#mapid{
+    z-index: 0;
+}
+.overlay{
+    pointer-events: none;
+    z-index: 100001;
+}
+.content{
+    pointer-events: all;
+}
+
+.jumbotron{
+    background-color: white !important;
+    padding-top: 2rem!important;
+    padding-bottom: 2rem!important;
+}
+
+.display-4{
+    font-size: 2.5rem!important;
+}
+
+a > p {
+    font-size: 1rem!important;
+}
+
+.menu, #results_realtime  {
+    display: none;
+}
+
+.divide{
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.display-3{
+    font-size: 1.5rem!important;
+}
+
+.datepicker-container{
+    z-index: 10000!important;
+}
+
+#loading {
+    background-color: rgba(255, 255, 255, 0.418);
+    display: none;
+    z-index: 900;
+}
+
+#spinnermap{
+    height: 3rem;
+    width: 3rem;
+}
+
+#loadingtext {
+    user-select: none;
+}
+
+

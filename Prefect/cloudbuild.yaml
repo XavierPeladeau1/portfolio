@@ -1,0 +1,12 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', '${LOCATION}-docker.pkg.dev/${PROJECT_ID}/prefect-project/prefect-project:latest', '.']
+
+  # Deploy flows after build completes
+  - name: '${LOCATION}-docker.pkg.dev/${PROJECT_ID}/prefect-project/prefect-project:latest'
+    args: ['prefect', '--no-prompt', 'deploy', '--all']
+
+options:
+  workerPool: "projects/${PROJECT_ID}/locations/${LOCATION}/workerPools/my-private-pool"
+  logging: 'CLOUD_LOGGING_ONLY'
+images: ['${LOCATION}-docker.pkg.dev/${PROJECT_ID}/prefect-project/prefect-project:latest']
