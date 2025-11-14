@@ -18,6 +18,7 @@ from sklearn.preprocessing import StandardScaler
 from pytorch_lightning.callbacks import Callback
 import torch
 from fredapi import Fred
+import yfinance as yf
 
 
 load_dotenv()
@@ -95,7 +96,7 @@ def save_results(hparams, eval_metrics, output_path):
 def make_forecasts(model, ts: TimeSeries, ts_scaled: TimeSeries, covariates_scaled: TimeSeries, pipeline:Pipeline) -> pd.DataFrame:
     forecasts = pd.DataFrame()
 
-    val_df_scaled = ts_scaled.drop_before(pd.Timestamp("2012-12-31")).pd_dataframe()
+    val_df_scaled = ts_scaled.drop_before(pd.Timestamp("2012-12-31")).to_dataframe()
 
 
     # Make forecasts for each date in the validation set
@@ -114,19 +115,19 @@ def make_forecasts(model, ts: TimeSeries, ts_scaled: TimeSeries, covariates_scal
             pred = model.predict(n=36, series=ts_up_to_t, past_covariates=covariates, num_samples=500, verbose=False)
 
             # Get values for each quantile and unscale
-            pred_quantiles_unscaled = {q: unscale_series(pred.quantile(q), pipeline, ts_scaled).pd_series() for q in [0.05, 0.1, 0.5, 0.9, 0.95]}
+            pred_quantiles_unscaled = {q: unscale_series(pred.quantile(q), pipeline, ts_scaled).to_series() for q in [0.05, 0.1, 0.5, 0.9, 0.95]}
             # print(pred_unscaled)
             # print(pred)
         else:
             pred = model.predict(n=36, series=ts_up_to_t, past_covariates=covariates)
-            pred_unscaled = unscale_series(pred, pipeline, ts_scaled).pd_series()
+            pred_unscaled = unscale_series(pred, pipeline, ts_scaled).to_series()
             pred_quantiles_unscaled = {0.5: pred_unscaled}
             for q in [0.05, 0.1, 0.9, 0.95]:
                 pred_quantiles_unscaled[q] = pred_unscaled
 
         # Get labels (real values) for the period
         three_years = t + (pd.Timedelta(days=364)*3)
-        labels = ts.pd_dataframe().loc[t:three_years]
+        labels = ts.to_dataframe().loc[t:three_years]
 
         # If labels don't extend to the end of the forecast period, create NA values for the missing dates
         if labels.index[-1] < three_years:
@@ -290,10 +291,9 @@ def fetch_fred_data(start_date="1960-01-01", end_date=None):
         'US_TB_YIELD_5YRS': 'DGS5',  # 5-Year Treasury Constant Maturity Rate
         'US_TB_YIELD_3MTHS': 'DGS3MO',  # 3-Month Treasury Constant Maturity Rate
         'US_UNEMPLOYMENT_RATE': 'UNRATE',  # Unemployment Rate
-        'SNP_500': 'SP500',  # S&P 500 Index
     }
 
-    # Fetch each series
+    # Fetch each series from FRED
     data = {}
     for col_name, series_id in series_mapping.items():
         try:
@@ -302,6 +302,15 @@ def fetch_fred_data(start_date="1960-01-01", end_date=None):
         except Exception as e:
             print(f"Warning: Failed to fetch {col_name} ({series_id}): {e}")
             data[col_name] = pd.Series(dtype=float)
+
+    # Fetch S&P 500 from Yahoo Finance (FRED only has 10 years of history)
+    try:
+        sp500 = yf.download('^GSPC', start=start_date, end=end_date, progress=False)['Close']
+        sp500.index = pd.to_datetime(sp500.index)
+        data['SNP_500'] = sp500['^GSPC']
+    except Exception as e:
+        print(f"Warning: Failed to fetch S&P 500 from Yahoo Finance: {e}")
+        data['SNP_500'] = pd.Series(dtype=float)
 
     # Combine into DataFrame
     df = pd.DataFrame(data)
@@ -352,7 +361,7 @@ def load_jorge_data():
     autres["DATE"] = pd.to_datetime(autres["DATE"])
     autres = autres.set_index("DATE").asfreq("MS")
     autres = autres.replace("Nan", pd.NA)
-    autres = autres.apply(pd.to_numeric, errors="ignore")
+    autres = autres.apply(pd.to_numeric)
     autres = autres.resample("ME").mean()
 
     autres = autres[
