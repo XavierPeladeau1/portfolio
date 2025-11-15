@@ -122,6 +122,31 @@ body {
     border-color: var(--primary-color);
 }
 
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+    color: #ffffff;
+}
+
+.contact-link svg {
+    flex-shrink: 0;
+}
+
 .github-link {
     display: inline-flex;
     align-items: center;

@@ -1,33 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xavier Péladeau - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div class="layout">
         <!-- Left Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-content">
+                <div class="language-selector">
+                    <a href="index.html" class="active">EN</a>
+                    <a href="index_fr.html">FR</a>
+                </div>
                 <h1>Xavier Péladeau</h1>
                 <p class="tagline">Data Science | Cloud Engineering | Software Development</p>
 
                 <div class="intro">
                     <p class="intro-main">Welcome to my portfolio</p>
-                    <p class="intro-text">I am a data practitioner with over four years of experience building end-to-end data solutions that range from predictive modeling and time series forecasting to cloud infrastructure automation and full-stack applications.</p>
-                    <p class="intro-text">I have recently graduated with a Master's degree in Data Science from HEC Montréal.</p>
+                    <p class="intro-text">I am a data practitioner with over four years of experience building
+                        end-to-end data solutions that range from predictive modeling and time series forecasting to
+                        cloud infrastructure automation and full-stack applications.</p>
+                    <p class="intro-text">I have recently graduated with a Master's degree in Data Science from HEC
+                        Montréal.</p>
                 </div>
 
                 <div class="sidebar-footer">
-                    <div class="language-selector">
-                        <a href="index.html" class="active">EN</a>
-                        <a href="index_fr.html">FR</a>
+                    <div class="contact-links">
+                        <a href="mailto:xavierpeladeau12@hotmail.com" class="contact-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            xavierpeladeau12@hotmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/xavier-peladeau/" target="_blank" class="contact-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                            LinkedIn
+                        </a>
                     </div>
                     <a href="https://github.com/xavierpeladeau1/portfolio" target="_blank" class="github-link">
                         <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
                         </svg>
                         View on GitHub
                     </a>
@@ -55,7 +79,9 @@
                             <div class="expand-icon">▼</div>
                         </div>
                         <div class="project-content">
-                            <p>Multi-horizon forecasting of US 10-year Treasury yields using deep learning and statistical models. Initial work done as part of the Défi IA 2025 competition organized by Caisse de Dépôt et Placement du Québec (CDPQ), which my team won in January 2025.</p>
+                            <p>Multi-horizon forecasting of US 10-year Treasury yields using deep learning and
+                                statistical models. Initial work done as part of the Défi IA 2025 competition organized
+                                by Caisse de Dépôt et Placement du Québec (CDPQ), which my team won in January 2025.</p>
 
                             <div class="tech-stack">
                                 <span class="tech-tag">PyTorch</span>
@@ -78,8 +104,10 @@
                                 <h3>Key Features</h3>
                                 <ul>
                                     <li><strong>Multi-step forecasting</strong>: 1 to 36 months ahead predictions</li>
-                                    <li><strong>Probabilistic outputs</strong>: Quantile forecasts with uncertainty intervals</li>
-                                    <li><strong>Rigorous evaluation</strong>: Walk-forward validation, chronological splits, baseline comparisons</li>
+                                    <li><strong>Probabilistic outputs</strong>: Quantile forecasts with uncertainty
+                                        intervals</li>
+                                    <li><strong>Rigorous evaluation</strong>: Walk-forward validation, chronological
+                                        splits, baseline comparisons</li>
                                     <li><strong>Public data</strong>: FRED API integration for reproducibility</li>
                                 </ul>
 
@@ -157,20 +185,26 @@
 
                                 <h5>Key findings:</h5>
                                 <ul>
-                                    <li><strong>Best short-term (1 month)</strong>: N-HiTS achieves 7.2% MAPE, outperforming all models including naive baseline</li>
-                                    <li><strong>Best long-term (36 months)</strong>: TFT excels at extended horizons with 53.0% MAPE vs. 84.4% for naive</li>
-                                    <li><strong>Classical ML</strong>: Lasso regression competitive with deep learning at short/medium horizons, offering better interpretability</li>
+                                    <li><strong>Best short-term (1 month)</strong>: N-HiTS achieves 7.2% MAPE,
+                                        outperforming all models including naive baseline</li>
+                                    <li><strong>Best long-term (36 months)</strong>: TFT excels at extended horizons
+                                        with 53.0% MAPE vs. 84.4% for naive</li>
+                                    <li><strong>Classical ML</strong>: Lasso regression competitive with deep learning
+                                        at short/medium horizons, offering better interpretability</li>
                                 </ul>
 
                                 <h3>Data Sources</h3>
                                 <ul>
-                                    <li><strong>Primary</strong>: FRED API (Treasury yields, unemployment, CPI, Fed funds rate, S&P 500, GDP, employment, inflation expectations)</li>
-                                    <li><strong>Sentiment</strong>: SF Fed Daily News Sentiment Index (public dataset)</li>
+                                    <li><strong>Primary</strong>: FRED API (Treasury yields, unemployment, CPI, Fed
+                                        funds rate, S&P 500, GDP, employment, inflation expectations)</li>
+                                    <li><strong>Sentiment</strong>: SF Fed Daily News Sentiment Index (public dataset)
+                                    </li>
                                 </ul>
                                 <p>All data sources are publicly available for reproducibility.</p>
                             </div>
 
-                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/master/Forecasting%20Interest%20Rate%20Fluctuations" class="btn" target="_blank">View Project →</a>
+                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/master/Forecasting%20Interest%20Rate%20Fluctuations"
+                                class="btn" target="_blank">View Project →</a>
                         </div>
                     </div>
 
@@ -183,7 +217,9 @@
                             <div class="expand-icon">▼</div>
                         </div>
                         <div class="project-content">
-                            <p>Time series forecasting of electricity consumption patterns across Quebec regions using classical statistical models and deep learning approaches. Developed as part of MATH60630 (Machine Learning II) coursework at HEC Montréal.</p>
+                            <p>Time series forecasting of electricity consumption patterns across Quebec regions using
+                                classical statistical models and deep learning approaches. Developed as part of
+                                MATH60630 (Machine Learning II) coursework at HEC Montréal.</p>
 
                             <div class="tech-stack">
                                 <span class="tech-tag">SARIMAX</span>
@@ -196,7 +232,11 @@
 
                             <div class="readme-section">
                                 <h3>Overview</h3>
-                                <p>This project analyzes and forecasts electricity consumption for different Municipal Regional Counties (MRCs) and sectors in Quebec using historical data from Hydro-Québec. The analysis incorporates weather data (temperature) and geographic information to improve forecast accuracy across various consumer segments (residential, commercial, industrial, agricultural).</p>
+                                <p>This project analyzes and forecasts electricity consumption for different Municipal
+                                    Regional Counties (MRCs) and sectors in Quebec using historical data from
+                                    Hydro-Québec. The analysis incorporates weather data (temperature) and geographic
+                                    information to improve forecast accuracy across various consumer segments
+                                    (residential, commercial, industrial, agricultural).</p>
 
                                 <h3>Tech Stack</h3>
                                 <ul>
@@ -213,33 +253,45 @@
                                 <ul>
                                     <li>Historical electricity consumption data aggregation by MRC and sector</li>
                                     <li>Temperature data integration using geographic coordinates</li>
-                                    <li>Missing value interpolation based on spatial proximity using Google Maps API</li>
+                                    <li>Missing value interpolation based on spatial proximity using Google Maps API
+                                    </li>
                                     <li>Feature engineering with seasonal and weather variables</li>
                                 </ul>
 
                                 <h5>Modeling Approaches</h5>
                                 <ul>
-                                    <li><strong>SARIMAX</strong>: Captures seasonal patterns and trends, incorporates exogenous variables (temperature, sector type), provides interpretable coefficients</li>
-                                    <li><strong>Temporal Convolutional Networks (TCN)</strong>: Parallel processing of time series, long-range dependency modeling, efficient computation for long sequences</li>
+                                    <li><strong>SARIMAX</strong>: Captures seasonal patterns and trends, incorporates
+                                        exogenous variables (temperature, sector type), provides interpretable
+                                        coefficients</li>
+                                    <li><strong>Temporal Convolutional Networks (TCN)</strong>: Parallel processing of
+                                        time series, long-range dependency modeling, efficient computation for long
+                                        sequences</li>
                                 </ul>
 
                                 <h3>Data Sources</h3>
                                 <ul>
-                                    <li><strong>Hydro-Québec</strong>: Historical electricity consumption by MRC and sector</li>
+                                    <li><strong>Hydro-Québec</strong>: Historical electricity consumption by MRC and
+                                        sector</li>
                                     <li><strong>Meteostat</strong>: Historical temperature data for Quebec regions</li>
-                                    <li><strong>Google Maps API</strong>: Geographic coordinates for MRC spatial analysis</li>
+                                    <li><strong>Google Maps API</strong>: Geographic coordinates for MRC spatial
+                                        analysis</li>
                                 </ul>
 
                                 <h3>Key Insights</h3>
-                                <p>The project compares forecasting performance across different model architectures:</p>
+                                <p>The project compares forecasting performance across different model architectures:
+                                </p>
                                 <ul>
-                                    <li><strong>SARIMAX</strong> excels at capturing clear seasonal patterns with interpretable parameters</li>
-                                    <li><strong>TCN</strong> demonstrates strong performance in modeling complex temporal dependencies</li>
+                                    <li><strong>SARIMAX</strong> excels at capturing clear seasonal patterns with
+                                        interpretable parameters</li>
+                                    <li><strong>TCN</strong> demonstrates strong performance in modeling complex
+                                        temporal dependencies</li>
                                 </ul>
-                                <p>Model selection depends on the specific MRC-sector combination, data availability, and forecast horizon requirements.</p>
+                                <p>Model selection depends on the specific MRC-sector combination, data availability,
+                                    and forecast horizon requirements.</p>
                             </div>
 
-                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/master/Forecasting%20Electricity%20Consumption" class="btn" target="_blank">View Project →</a>
+                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/master/Forecasting%20Electricity%20Consumption"
+                                class="btn" target="_blank">View Project →</a>
                         </div>
                     </div>
                 </div>
@@ -256,7 +308,8 @@
                             <div class="expand-icon">▼</div>
                         </div>
                         <div class="project-content">
-                            <p>Production-ready, self-hosted Prefect workflow orchestration platform deployed on Google Cloud Platform with Infrastructure-as-Code provisioning and automated CI/CD.</p>
+                            <p>Production-ready, self-hosted Prefect workflow orchestration platform deployed on Google
+                                Cloud Platform with Infrastructure-as-Code provisioning and automated CI/CD.</p>
 
                             <div class="tech-stack">
                                 <span class="tech-tag">GCP</span>
@@ -279,16 +332,30 @@
 
                             <div class="readme-section">
                                 <h3>Overview</h3>
-                                <p>This project demonstrates the design and implementation of a scalable data workflow orchestration platform using Prefect, deployed on Google Cloud Platform with fully automated infrastructure provisioning through Terraform.</p>
+                                <p>This project demonstrates the design and implementation of a scalable data workflow
+                                    orchestration platform using Prefect, deployed on Google Cloud Platform with fully
+                                    automated infrastructure provisioning through Terraform.</p>
 
                                 <h3>Technical Skills & Implementation</h3>
                                 <ul>
-                                    <li><strong>Terraform Infrastructure as Code</strong>: Complete GCP infrastructure provisioned with modular configuration files for compute, networking, security, and CI/CD resources</li>
-                                    <li><strong>GCP Cloud Architecture</strong>: VPC networking with private IP addressing, Serverless VPC Access connector for Cloud Run integration, Service Networking for Cloud Build, and zero-trust firewall rules</li>
-                                    <li><strong>Prefect Workflow Orchestration</strong>: Python-based data pipelines with task dependencies, scheduled deployments, and distributed execution on serverless Cloud Run infrastructure</li>
-                                    <li><strong>GitOps CI/CD Pipeline</strong>: Automated Docker image builds and workflow deployment synchronization via Cloud Build, triggered on every commit to main branch</li>
-                                    <li><strong>Docker & Container Orchestration</strong>: Multi-service management with Docker Compose (PostgreSQL, Redis, Prefect server/worker), custom images with workflow dependencies, and serverless execution</li>
-                                    <li><strong>Security Implementation</strong>: Network isolation with no public access to orchestration layer, IAM service accounts with least-privilege permissions, secrets management, and SSH via Identity-Aware Proxy</li>
+                                    <li><strong>Terraform Infrastructure as Code</strong>: Complete GCP infrastructure
+                                        provisioned with modular configuration files for compute, networking, security,
+                                        and CI/CD resources</li>
+                                    <li><strong>GCP Cloud Architecture</strong>: VPC networking with private IP
+                                        addressing, Serverless VPC Access connector for Cloud Run integration, Service
+                                        Networking for Cloud Build, and zero-trust firewall rules</li>
+                                    <li><strong>Prefect Workflow Orchestration</strong>: Python-based data pipelines
+                                        with task dependencies, scheduled deployments, and distributed execution on
+                                        serverless Cloud Run infrastructure</li>
+                                    <li><strong>GitOps CI/CD Pipeline</strong>: Automated Docker image builds and
+                                        workflow deployment synchronization via Cloud Build, triggered on every commit
+                                        to main branch</li>
+                                    <li><strong>Docker & Container Orchestration</strong>: Multi-service management with
+                                        Docker Compose (PostgreSQL, Redis, Prefect server/worker), custom images with
+                                        workflow dependencies, and serverless execution</li>
+                                    <li><strong>Security Implementation</strong>: Network isolation with no public
+                                        access to orchestration layer, IAM service accounts with least-privilege
+                                        permissions, secrets management, and SSH via Identity-Aware Proxy</li>
                                 </ul>
 
                                 <h3>Architecture</h3>
@@ -325,8 +392,10 @@
                                 <p><strong>Prefect Server (VM-based)</strong></p>
                                 <ul>
                                     <li><strong>Server</strong>: REST API and Web UI for workflow management</li>
-                                    <li><strong>Database</strong>: PostgreSQL for workflow metadata and execution history</li>
-                                    <li><strong>Worker</strong>: Polls for scheduled workflows and provisions Cloud Run jobs</li>
+                                    <li><strong>Database</strong>: PostgreSQL for workflow metadata and execution
+                                        history</li>
+                                    <li><strong>Worker</strong>: Polls for scheduled workflows and provisions Cloud Run
+                                        jobs</li>
                                     <li><strong>Redis</strong>: Caching layer for improved performance</li>
                                 </ul>
 
@@ -348,7 +417,8 @@
                                 </ul>
                             </div>
 
-                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/master/Prefect" class="btn" target="_blank">View Project →</a>
+                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/master/Prefect" class="btn"
+                                target="_blank">View Project →</a>
                         </div>
                     </div>
                 </div>
@@ -365,7 +435,9 @@
                             <div class="expand-icon">▼</div>
                         </div>
                         <div class="project-content">
-                            <p>Interactive web application for visualizing mobile device location data with real-time animations and geographic insights. Developed as part of an internship at Vidéotron in Summer 2019.</p>
+                            <p>Interactive web application for visualizing mobile device location data with real-time
+                                animations and geographic insights. Developed as part of an internship at Vidéotron in
+                                Summer 2019.</p>
 
                             <div class="tech-stack">
                                 <span class="tech-tag">JavaScript</span>
@@ -382,7 +454,10 @@
 
                             <div class="readme-section">
                                 <h3>Overview</h3>
-                                <p>Built with vanilla JavaScript, this application provides an intuitive interface for exploring mobile device movement patterns across geographic regions. The visualization combines interactive maps with custom animations to present location data in an accessible format.</p>
+                                <p>Built with vanilla JavaScript, this application provides an intuitive interface for
+                                    exploring mobile device movement patterns across geographic regions. The
+                                    visualization combines interactive maps with custom animations to present location
+                                    data in an accessible format.</p>
 
                                 <h3>Tech Stack</h3>
                                 <ul>
@@ -401,19 +476,25 @@
 
                                 <h3>Screenshots</h3>
                                 <div>
-                                    <img src="Géolocalisation/Images/screenshot2.png" alt="Main application interface" class="screenshot">
+                                    <img src="Géolocalisation/Images/screenshot2.png" alt="Main application interface"
+                                        class="screenshot">
                                     <p class="screenshot-caption">Main application interface</p>
                                 </div>
                                 <div>
-                                    <img src="Géolocalisation/Images/screenshot1.png" alt="Sub-menu example" class="screenshot">
+                                    <img src="Géolocalisation/Images/screenshot1.png" alt="Sub-menu example"
+                                        class="screenshot">
                                     <p class="screenshot-caption">Sub-menu example</p>
                                 </div>
 
                                 <h3>Note</h3>
-                                <p>This application is no longer functional as it requires access to proprietary Vidéotron telecommunications data that is not publicly available. The screenshots above demonstrate the interface and visualization capabilities when the application was operational.</p>
+                                <p>This application is no longer functional as it requires access to proprietary
+                                    Vidéotron telecommunications data that is not publicly available. The screenshots
+                                    above demonstrate the interface and visualization capabilities when the application
+                                    was operational.</p>
                             </div>
 
-                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/master/G%C3%A9olocalisation" class="btn" target="_blank">View Project →</a>
+                            <a href="https://github.com/xavierpeladeau1/portfolio/tree/master/G%C3%A9olocalisation"
+                                class="btn" target="_blank">View Project →</a>
                         </div>
                     </div>
                 </div>
@@ -441,4 +522,5 @@
         }
     </script>
 </body>
+
 </html>
